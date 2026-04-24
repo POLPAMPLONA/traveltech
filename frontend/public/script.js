@@ -2,9 +2,9 @@
 const API = "https://restcountries.com/v3.1/name/";
 
 const SERVICES = {
-  favorites: "http://localhost:3001",
-  comments: "http://localhost:3002",
-  history: "http://localhost:3003"
+  favorites: window.ENV?.FAVORITES || "http://localhost:3001",
+  comments: window.ENV?.COMMENTS || "http://localhost:3002",
+  history: window.ENV?.HISTORY || "http://localhost:3003"
 };
 
 async function searchCountry() {

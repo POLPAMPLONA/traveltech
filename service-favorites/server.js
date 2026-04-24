@@ -1,18 +1,34 @@
-
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
-let data = [];
+let favorites = [];
 
-app.get("/favorites", (req, res) => res.json(data));
-
-app.post("/favorites", (req, res) => {
-  data.push(req.body);
-  res.json({status: "ok"});
+// GET favorites
+app.get("/favorites", (req, res) => {
+  res.json(favorites);
 });
 
-app.listen(3001, () => console.log("service-favorites on 3001"));
+// POST favorite
+app.post("/favorites", (req, res) => {
+  const { country } = req.body;
+
+  if (!country) {
+    return res.status(400).json({ error: "country required" });
+  }
+
+  favorites.push({ country });
+  res.json({ status: "ok" });
+});
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Favorites running on ${PORT}`));

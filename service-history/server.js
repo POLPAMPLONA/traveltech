@@ -1,18 +1,34 @@
-
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
-let data = [];
+let history = [];
 
-app.get("/history", (req, res) => res.json(data));
-
-app.post("/history", (req, res) => {
-  data.push(req.body);
-  res.json({status: "ok"});
+// GET history
+app.get("/history", (req, res) => {
+  res.json(history);
 });
 
-app.listen(3003, () => console.log("service-history on 3003"));
+// POST history
+app.post("/history", (req, res) => {
+  const { country } = req.body;
+
+  if (!country) {
+    return res.status(400).json({ error: "country required" });
+  }
+
+  history.push({ country });
+  res.json({ status: "ok" });
+});
+
+const PORT = process.env.PORT || 3003;
+app.listen(PORT, () => console.log(`History running on ${PORT}`));
