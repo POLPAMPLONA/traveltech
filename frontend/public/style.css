@@ -1,0 +1,94 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fondo general */
+body {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: white;
+  padding: 30px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+/* Buscador */
+input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* Resultado país */
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#result img {
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Secciones */
+h2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #38bdf8;
+  display: inline-block;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+li {
+  background: #334155;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+li:hover {
+  background: #475569;
+  transform: translateX(5px);
+}
+
+/* Layout más limpio */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
