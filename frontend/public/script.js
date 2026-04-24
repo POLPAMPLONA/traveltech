@@ -1,9 +1,9 @@
 const API = "https://restcountries.com/v3.1/name/";
 
 const SERVICES = {
-  favorites: "https://service-favorites-65uh.onrender.com/",
-  comments: "https://service-comments.onrender.com/",
-  history: "https://service-history.onrender.com/"
+  favorites: "https://service-favorites-65uh.onrender.com",
+  comments: "https://service-comments.onrender.com",
+  history: "https://service-history.onrender.com"
 };
 
 async function searchCountry() {
